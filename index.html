@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NGO Brand Questionnaire — Uriel Majesty</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest: #1a4a3a;
+      --forest-mid: #2d6e57;
+      --forest-soft: #3d8a6e;
+      --earth: #c47c3a;
+      --earth-light: #dca060;
+      --sand: #f7f4ee;
+      --white: #ffffff;
+      --ink: #141c18;
+      --ink-soft: #3a4a42;
+      --mint: #eaf4ef;
+      --border: rgba(26,74,58,0.14);
+      --shadow: rgba(26,74,58,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--sand);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 100% 0%, rgba(26,74,58,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 0% 100%, rgba(196,124,58,0.06) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* === HEADER === */
+    header {
+      position: relative;
+      z-index: 10;
+      background: var(--forest);
+      color: #fff;
+      padding: 56px 24px 48px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 120%, rgba(61,138,110,0.4) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .org-badge {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 40px;
+      margin-bottom: 26px;
+    }
+
+    .org-badge svg { width: 13px; height: 13px; fill: var(--earth-light); }
+
+    header h1 {
+      position: relative;
+      font-family: 'Libre Baskerville', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    header h1 em {
+      font-style: italic;
+      color: var(--earth-light);
+    }
+
+    header p {
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto;
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.75;
+    }
+
+    .header-divider {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .header-divider span {
+      width: 56px;
+      height: 1px;
+      background: rgba(255,255,255,0.25);
+    }
+
+    .header-divider svg { width: 16px; height: 16px; fill: var(--earth-light); opacity: 0.9; }
+
+    /* === PROGRESS === */
+    .progress-bar-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247,244,238,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 11px 32px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .progress-label {
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--forest);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 3px;
+      background: var(--border);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(to right, var(--forest), var(--earth));
+      border-radius: 99px;
+      width: 0%;
+      transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .progress-pct {
+      font-size: 12px;
+      color: var(--ink-soft);
+      min-width: 34px;
+      text-align: right;
+    }
+
+    /* === MAIN === */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* === SECTION === */
+    .section {
+      margin-bottom: 64px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: rise 0.55s forwards;
+    }
+
+    .section:nth-child(1) { animation-delay: 0.08s; }
+    .section:nth-child(2) { animation-delay: 0.16s; }
+    .section:nth-child(3) { animation-delay: 0.24s; }
+    .section:nth-child(4) { animation-delay: 0.32s; }
+    .section:nth-child(5) { animation-delay: 0.40s; }
+    .section:nth-child(6) { animation-delay: 0.48s; }
+    .section:nth-child(7) { animation-delay: 0.56s; }
+    .section:nth-child(8) { animation-delay: 0.64s; }
+
+    @keyframes rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--forest);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--forest);
+    }
+
+    /* === FIELDS === */
+    .field { margin-bottom: 22px; }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 7px;
+      letter-spacing: 0.01em;
+    }
+
+    label .req { color: var(--forest-soft); margin-left: 3px; }
+
+    label .hint {
+      display: block;
+      font-weight: 300;
+      font-size: 11.5px;
+      color: var(--ink-soft);
+      margin-top: 3px;
+      font-style: italic;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--forest-soft);
+      box-shadow: 0 0 0 3px rgba(26,74,58,0.08);
+    }
+
+    textarea { resize: vertical; min-height: 110px; line-height: 1.65; }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%231a4a3a' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 38px;
+      cursor: pointer;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 540px) {
+      .field-row { grid-template-columns: 1fr; }
+    }
+
+    /* === CHECKBOXES === */
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      background: var(--white);
+    }
+
+    .check-item:hover { border-color: var(--forest-soft); background: var(--mint); }
+
+    .check-item input[type="checkbox"],
+    .check-item input[type="radio"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--forest);
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .check-item span {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .check-item:has(input:checked) {
+      border-color: var(--forest);
+      background: var(--mint);
+    }
+
+    /* === COLOUR PICKER === */
+    .color-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    .color-swatch-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .color-swatch-wrap label {
+      font-size: 11px;
+      color: var(--ink-soft);
+      margin-bottom: 0;
+    }
+
+    input[type="color"] {
+      width: 50px;
+      height: 50px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 3px;
+      background: #fff;
+    }
+
+    /* === TONE SLIDERS === */
+    .tone-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .tone-label {
+      font-size: 12px;
+      color: var(--ink-soft);
+      width: 100px;
+      flex-shrink: 0;
+    }
+
+    input[type="range"] {
+      flex: 1;
+      accent-color: var(--forest);
+      cursor: pointer;
+    }
+
+    .tone-end {
+      font-size: 12px;
+      color: var(--ink-soft);
+      width: 100px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* === INFO CARD === */
+    .info-card {
+      background: var(--mint);
+      border: 1px solid rgba(26,74,58,0.18);
+      border-left: 3px solid var(--forest);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 22px;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    .info-card strong { color: var(--forest); font-weight: 500; }
+
+    /* === SUBMIT === */
+    .submit-wrap { text-align: center; padding-top: 16px; }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--forest);
+      color: #fff;
+      border: none;
+      padding: 18px 52px;
+      border-radius: 6px;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      box-shadow: 0 8px 28px rgba(26,74,58,0.28);
+    }
+
+    .submit-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(196,124,58,0.18), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(26,74,58,0.32);
+      background: var(--forest-mid);
+    }
+
+    .submit-btn:hover::after { opacity: 1; }
+    .submit-btn:active { transform: translateY(0); }
+    .submit-btn svg { width: 17px; height: 17px; }
+
+    .submit-note {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+
+    /* === SUCCESS === */
+    #success-msg {
+      display: none;
+      text-align: center;
+      padding: 72px 24px;
+    }
+
+    .success-icon {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: var(--forest);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      box-shadow: 0 12px 40px var(--shadow);
+    }
+
+    .success-icon svg { width: 34px; height: 34px; stroke: #fff; fill: none; stroke-width: 2.5; }
+
+    #success-msg h2 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--forest);
+      margin-bottom: 14px;
+    }
+
+    #success-msg p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      max-width: 420px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* === FOOTER === */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+
+    footer strong { color: var(--forest); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="org-badge">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+    Uriel Majesty Creative Studio
+  </div>
+  <h1>NGO Brand <em>Discovery</em> Questionnaire</h1>
+  <p>Help us understand your organisation's heart and mission so we can build a brand identity that amplifies your impact and earns trust.</p>
+  <div class="header-divider">
+    <span></span>
+    <svg viewBox="0 0 24 24"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+    <span></span>
+  </div>
+</header>
+
+<!-- PROGRESS -->
+<div class="progress-bar-wrap">
+  <span class="progress-label">Progress</span>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <span class="progress-pct" id="progressPct">0%</span>
+</div>
+
+<!-- FORM -->
+<main>
+  <form id="ngoForm" action="https://formspree.io/YOUR_FORMSPREE_ID" method="POST">
+
+    <!-- 1. ORGANISATION BASICS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <h2 class="section-title">Organisation Basics</h2>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Contact Person's Full Name <span class="req">*</span></label>
+          <input type="text" name="contact_name" required placeholder="Your full name"/>
+        </div>
+        <div class="field">
+          <label>Your Role / Title <span class="req">*</span></label>
+          <input type="text" name="contact_role" required placeholder="e.g. Executive Director, Communications Lead"/>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Email Address <span class="req">*</span></label>
+          <input type="email" name="email" required placeholder="contact@yourorg.org"/>
+        </div>
+        <div class="field">
+          <label>Phone Number</label>
+          <input type="tel" name="phone" placeholder="+233 XX XXX XXXX"/>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Organisation Name <span class="req">*</span></label>
+          <input type="text" name="org_name" required placeholder="Full legal name of your NGO"/>
+        </div>
+        <div class="field">
+          <label>Acronym / Short Name (if any)</label>
+          <input type="text" name="org_acronym" placeholder="e.g. YODA, CARE, WEDA"/>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Year Founded</label>
+          <input type="text" name="year_founded" placeholder="e.g. 2018"/>
+        </div>
+        <div class="field">
+          <label>Country / Region of Operation <span class="req">*</span></label>
+          <input type="text" name="country" required placeholder="e.g. Ghana, West Africa, Global"/>
+        </div>
+      </div>
+      <div class="field">
+        <label>Website (if any)</label>
+        <input type="url" name="website" placeholder="https://yourorg.org"/>
+      </div>
+      <div class="field">
+        <label>NGO Type / Focus Area <span class="req">*</span></label>
+        <select name="ngo_type" required>
+          <option value="" disabled selected>Select your focus area</option>
+          <option>Education & Youth Development</option>
+          <option>Health & Medical Aid</option>
+          <option>Women & Gender Equality</option>
+          <option>Environmental & Climate Action</option>
+          <option>Food Security & Agriculture</option>
+          <option>Human Rights & Advocacy</option>
+          <option>Economic Empowerment & Livelihood</option>
+          <option>Disability & Inclusion</option>
+          <option>Refugee & Humanitarian Aid</option>
+          <option>Arts, Culture & Heritage</option>
+          <option>Children & Family Welfare</option>
+          <option>Community Development</option>
+          <option>Faith-Based Organisation</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Briefly describe what your organisation does <span class="req">*</span>
+          <span class="hint">What is your work? Who does it serve? Where does it happen?</span>
+        </label>
+        <textarea name="org_description" required placeholder="Give us a clear 2–4 sentence overview of your organisation…"></textarea>
+      </div>
+    </div>
+
+    <!-- 2. MISSION, VISION & VALUES -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <h2 class="section-title">Mission, Vision & Values</h2>
+      </div>
+      <div class="field">
+        <label>What is your official Mission Statement? <span class="req">*</span>
+          <span class="hint">Your organisation's core reason for existing — what you do and for whom</span>
+        </label>
+        <textarea name="mission" required placeholder="e.g. To empower rural girls in Northern Ghana through quality education and mentorship…"></textarea>
+      </div>
+      <div class="field">
+        <label>What is your Vision Statement? <span class="req">*</span>
+          <span class="hint">The future world your organisation is working to create</span>
+        </label>
+        <textarea name="vision" required placeholder="e.g. A Ghana where every girl has equal access to education and leadership opportunities…"></textarea>
+      </div>
+      <div class="field">
+        <label>What are your core organisational values?
+          <span class="hint">List 3–6 values that guide how you work, e.g. Integrity, Inclusion, Compassion</span>
+        </label>
+        <textarea name="values" placeholder="List your values, one per line or separated by commas…" style="min-height:80px;"></textarea>
+      </div>
+      <div class="field">
+        <label>What makes your organisation different from others doing similar work?
+          <span class="hint">Your unique approach, methodology, or community relationships</span>
+        </label>
+        <textarea name="differentiator" placeholder="What do you do that others don't, or how do you do it differently?"></textarea>
+      </div>
+    </div>
+
+    <!-- 3. BENEFICIARIES & STAKEHOLDERS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <h2 class="section-title">Beneficiaries & Stakeholders</h2>
+      </div>
+      <div class="info-card">
+        <strong>Note:</strong> NGOs typically communicate with two different audiences — the people you serve (beneficiaries) and the people who fund or support your work (donors, partners, government). Your brand needs to speak to both.
+      </div>
+      <div class="field">
+        <label>Who are your primary beneficiaries? <span class="req">*</span>
+          <span class="hint">Who directly benefits from your programmes? Age group, gender, location, circumstances</span>
+        </label>
+        <textarea name="beneficiaries" required placeholder="e.g. Girls aged 10–18 in rural communities across the Upper East Region of Ghana…"></textarea>
+      </div>
+      <div class="field">
+        <label>Who are your key donors or funders?
+          <span class="hint">Individual donors, foundations, government, corporate sponsors, international agencies</span>
+        </label>
+        <div class="check-grid">
+          <label class="check-item"><input type="checkbox" name="donors[]" value="Individual donors"/><span>Individual Donors</span></label>
+          <label class="check-item"><input type="checkbox" name="donors[]" value="International foundations"/><span>International Foundations</span></label>
+          <label class="check-item"><input type="checkbox" name="donors[]" value="Government grants"/><span>Government Grants</span></label>
+          <label class="check-item"><input type="checkbox" name="donors[]" value="Corporate sponsors"/><span>Corporate Sponsors</span></label>
+          <label class="check-item"><input type="checkbox" name="donors[]" value="UN or multilateral agencies"/><span>UN / Multilateral Agencies</span></label>
+          <label class="check-item"><input type="checkbox" name="donors[]" value="Faith-based donors"/><span>Faith-Based Donors</span></label>
+          <label class="check-item"><input type="checkbox" name="donors[]" value="Diaspora community"/><span>Diaspora Community</span></label>
+          <label class="check-item"><input type="checkbox" name="donors[]" value="Crowdfunding"/><span>Crowdfunding / Online</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Who else is important to your organisation?
+          <span class="hint">e.g. volunteers, government partners, media, community leaders, peer NGOs</span>
+        </label>
+        <textarea name="other_stakeholders" placeholder="Describe other important stakeholder groups…" style="min-height:80px;"></textarea>
+      </div>
+    </div>
+
+    <!-- 4. BRAND PERSONALITY & TONE -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <h2 class="section-title">Brand Personality & Tone</h2>
+      </div>
+      <div class="field">
+        <label>Which words describe how you want your organisation to be perceived? <span class="req">*</span>
+          <span class="hint">Select all that apply</span>
+        </label>
+        <div class="check-grid">
+          <label class="check-item"><input type="checkbox" name="personality[]" value="Trustworthy"/><span>Trustworthy & Credible</span></label>
+          <label class="check-item"><input type="checkbox" name="personality[]" value="Compassionate"/><span>Compassionate & Caring</span></label>
+          <label class="check-item"><input type="checkbox" name="personality[]" value="Empowering"/><span>Empowering & Uplifting</span></label>
+          <label class="check-item"><input type="checkbox" name="personality[]" value="Bold & Activist"/><span>Bold & Activist</span></label>
+          <label class="check-item"><input type="checkbox" name="personality[]" value="Professional"/><span>Professional & Institutional</span></label>
+          <label class="check-item"><input type="checkbox" name="personality[]" value="Community-rooted"/><span>Community-Rooted</span></label>
+          <label class="check-item"><input type="checkbox" name="personality[]" value="Hopeful"/><span>Hopeful & Optimistic</span></label>
+          <label class="check-item"><input type="checkbox" name="personality[]" value="Urgent"/><span>Urgent & Action-Driven</span></label>
+          <label class="check-item"><input type="checkbox" name="personality[]" value="Inclusive"/><span>Inclusive & Diverse</span></label>
+          <label class="check-item"><input type="checkbox" name="personality[]" value="Innovative"/><span>Innovative & Forward-thinking</span></label>
+          <label class="check-item"><input type="checkbox" name="personality[]" value="Dignified"/><span>Dignified & Respectful</span></label>
+          <label class="check-item"><input type="checkbox" name="personality[]" value="Transparent"/><span>Transparent & Accountable</span></label>
+        </div>
+      </div>
+      <div class="field" style="margin-top:28px;">
+        <label>Communication Tone — where does your organisation fall on these scales?</label>
+        <div style="margin-top:16px;">
+          <div class="tone-item">
+            <span class="tone-label">Formal</span>
+            <input type="range" name="tone_formal" min="1" max="10" value="5"/>
+            <span class="tone-end">Conversational</span>
+          </div>
+          <div class="tone-item">
+            <span class="tone-label">Serious</span>
+            <input type="range" name="tone_serious" min="1" max="10" value="5"/>
+            <span class="tone-end">Warm & Hopeful</span>
+          </div>
+          <div class="tone-item">
+            <span class="tone-label">Global / Neutral</span>
+            <input type="range" name="tone_global" min="1" max="10" value="5"/>
+            <span class="tone-end">Locally Rooted</span>
+          </div>
+          <div class="tone-item">
+            <span class="tone-label">Minimal / Clean</span>
+            <input type="range" name="tone_minimal" min="1" max="10" value="5"/>
+            <span class="tone-end">Bold & Expressive</span>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>If your organisation were a person, how would you describe them?
+          <span class="hint">Think about their personality, how they speak, how they make people feel</span>
+        </label>
+        <textarea name="org_persona" placeholder="e.g. A determined, warm community elder who speaks with quiet authority and always puts people first…"></textarea>
+      </div>
+    </div>
+
+    <!-- 5. VISUAL DIRECTION -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <h2 class="section-title">Visual & Design Direction</h2>
+      </div>
+      <div class="field">
+        <label>Do you have existing brand colours or a logo? <span class="req">*</span></label>
+        <div class="check-grid" style="grid-template-columns: 1fr 1fr;">
+          <label class="check-item"><input type="radio" name="has_existing_brand" value="Yes, we have existing branding" required/><span>Yes, we have existing branding</span></label>
+          <label class="check-item"><input type="radio" name="has_existing_brand" value="No, we are starting fresh"/><span>No, starting fresh</span></label>
+          <label class="check-item"><input type="radio" name="has_existing_brand" value="We have some but need a refresh"/><span>We have some but need a refresh</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Brand Colour Preferences
+          <span class="hint">Pick colours that reflect your cause and values (or your existing brand colours)</span>
+        </label>
+        <div class="color-row">
+          <div class="color-swatch-wrap">
+            <input type="color" name="color_1" value="#1a4a3a"/>
+            <label>Primary</label>
+          </div>
+          <div class="color-swatch-wrap">
+            <input type="color" name="color_2" value="#c47c3a"/>
+            <label>Secondary</label>
+          </div>
+          <div class="color-swatch-wrap">
+            <input type="color" name="color_3" value="#ffffff"/>
+            <label>Accent</label>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Any colours you want to AVOID?</label>
+        <input type="text" name="colors_avoid" placeholder="e.g. red (associated with danger), black (too corporate)…"/>
+      </div>
+      <div class="field">
+        <label>What visual style best represents your organisation? <span class="req">*</span></label>
+        <div class="check-grid">
+          <label class="check-item"><input type="radio" name="visual_style" value="Clean & Professional" required/><span>Clean & Professional</span></label>
+          <label class="check-item"><input type="radio" name="visual_style" value="Warm & Human"/><span>Warm & Human-centred</span></label>
+          <label class="check-item"><input type="radio" name="visual_style" value="Bold & Activist"/><span>Bold & Campaign-driven</span></label>
+          <label class="check-item"><input type="radio" name="visual_style" value="Cultural & Afrocentric"/><span>Cultural & Afrocentric</span></label>
+          <label class="check-item"><input type="radio" name="visual_style" value="Institutional & Formal"/><span>Institutional & Formal</span></label>
+          <label class="check-item"><input type="radio" name="visual_style" value="Earthy & Organic"/><span>Earthy & Organic</span></label>
+          <label class="check-item"><input type="radio" name="visual_style" value="Youthful & Energetic"/><span>Youthful & Energetic</span></label>
+          <label class="check-item"><input type="radio" name="visual_style" value="Minimal & Global"/><span>Minimal & Global</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>NGO brands you admire visually
+          <span class="hint">Local or international — any NGO, foundation, or cause-driven brand whose look you respect</span>
+        </label>
+        <input type="text" name="brand_references" placeholder="e.g. UNICEF, ONE Campaign, Lively Stones Foundation…"/>
+      </div>
+      <div class="field">
+        <label>Mood board or reference links
+          <span class="hint">Pinterest boards, websites, Instagram pages — paste links below</span>
+        </label>
+        <textarea name="mood_board" placeholder="Paste your reference links, one per line…" style="min-height:80px;"></textarea>
+      </div>
+      <div class="field">
+        <label>Are there any cultural, religious, or symbolic considerations for your visuals?
+          <span class="hint">Symbols to include or avoid, cultural sensitivities, community-specific meanings</span>
+        </label>
+        <textarea name="cultural_notes" placeholder="e.g. We work with Muslim communities so we avoid certain imagery. We want to incorporate Kente patterns…" style="min-height:80px;"></textarea>
+      </div>
+    </div>
+
+    <!-- 6. PROGRAMMES & IMPACT -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">6</div>
+        <h2 class="section-title">Programmes & Impact</h2>
+      </div>
+      <div class="field">
+        <label>List your main programmes or initiatives
+          <span class="hint">Give each programme a name and a one-line description of what it does</span>
+        </label>
+        <textarea name="programmes" placeholder="e.g. 1. Girls Scholarship Fund – pays school fees for 200 girls annually&#10;2. Safe Spaces – after-school clubs in 12 communities&#10;3. Mentor Her – connects girls with professional women…"></textarea>
+      </div>
+      <div class="field">
+        <label>What is your most significant impact achievement to date?
+          <span class="hint">A key milestone, statistic, or story that represents your work at its best</span>
+        </label>
+        <textarea name="impact_highlight" placeholder="e.g. We have kept 1,200 girls in school since 2019 across 6 districts…"></textarea>
+      </div>
+      <div class="field">
+        <label>What are your biggest upcoming goals or campaigns?</label>
+        <textarea name="upcoming_goals" placeholder="e.g. We are launching a national campaign in March and need brand materials for it…" style="min-height:80px;"></textarea>
+      </div>
+    </div>
+
+    <!-- 7. DELIVERABLES -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">7</div>
+        <h2 class="section-title">Design Deliverables & Platforms</h2>
+      </div>
+      <div class="field">
+        <label>What design deliverables do you need? <span class="req">*</span>
+          <span class="hint">Select everything in your package</span>
+        </label>
+        <div class="check-grid">
+          <label class="check-item"><input type="checkbox" name="deliverables[]" value="Logo Design"/><span>Logo Design</span></label>
+          <label class="check-item"><input type="checkbox" name="deliverables[]" value="Brand Style Guide"/><span>Brand Style Guide</span></label>
+          <label class="check-item"><input type="checkbox" name="deliverables[]" value="Letterhead & Templates"/><span>Letterhead & Templates</span></label>
+          <label class="check-item"><input type="checkbox" name="deliverables[]" value="Business Card"/><span>Business Card / ID Card</span></label>
+          <label class="check-item"><input type="checkbox" name="deliverables[]" value="Social Media Kit"/><span>Social Media Kit</span></label>
+          <label class="check-item"><input type="checkbox" name="deliverables[]" value="Flyer / Poster"/><span>Flyer / Poster Design</span></label>
+          <label class="check-item"><input type="checkbox" name="deliverables[]" value="Programme Brochure"/><span>Programme Brochure</span></label>
+          <label class="check-item"><input type="checkbox" name="deliverables[]" value="Proposal Template"/><span>Proposal / Report Template</span></label>
+          <label class="check-item"><input type="checkbox" name="deliverables[]" value="Event Banner"/><span>Event Banner / Backdrop</span></label>
+          <label class="check-item"><input type="checkbox" name="deliverables[]" value="T-Shirt / Merchandise"/><span>T-Shirt / Merchandise</span></label>
+          <label class="check-item"><input type="checkbox" name="deliverables[]" value="Email Signature"/><span>Email Signature</span></label>
+          <label class="check-item"><input type="checkbox" name="deliverables[]" value="Other"/><span>Other</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Which platforms will this brand live on?</label>
+        <div class="check-grid">
+          <label class="check-item"><input type="checkbox" name="platforms[]" value="Website"/><span>Website</span></label>
+          <label class="check-item"><input type="checkbox" name="platforms[]" value="Instagram"/><span>Instagram</span></label>
+          <label class="check-item"><input type="checkbox" name="platforms[]" value="Facebook"/><span>Facebook</span></label>
+          <label class="check-item"><input type="checkbox" name="platforms[]" value="LinkedIn"/><span>LinkedIn</span></label>
+          <label class="check-item"><input type="checkbox" name="platforms[]" value="Twitter/X"/><span>Twitter / X</span></label>
+          <label class="check-item"><input type="checkbox" name="platforms[]" value="YouTube"/><span>YouTube</span></label>
+          <label class="check-item"><input type="checkbox" name="platforms[]" value="WhatsApp"/><span>WhatsApp</span></label>
+          <label class="check-item"><input type="checkbox" name="platforms[]" value="Print & Physical"/><span>Print & Physical</span></label>
+          <label class="check-item"><input type="checkbox" name="platforms[]" value="Donor Reports"/><span>Donor / Grant Reports</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. FINAL NOTES -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">8</div>
+        <h2 class="section-title">Final Notes & Expectations</h2>
+      </div>
+      <div class="field">
+        <label>Is there anything specific you want the designer to know or keep in mind?
+          <span class="hint">Donor requirements, internal policies, things that have NOT worked in the past</span>
+        </label>
+        <textarea name="special_notes" placeholder="Any extra context that will help us get this right for your organisation…"></textarea>
+      </div>
+      <div class="field">
+        <label>What does a successful brand identity look like for your organisation?
+          <span class="hint">How will you know the brand has done its job? What reaction do you want from donors? From beneficiaries?</span>
+        </label>
+        <textarea name="success_definition" placeholder="e.g. Donors should immediately feel confidence and trust. Community members should feel seen and represented…"></textarea>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Expected Turnaround <span class="req">*</span></label>
+          <select name="turnaround" required>
+            <option value="" disabled selected>Select timeline</option>
+            <option>As agreed in contract</option>
+            <option>Within 3 days (urgent)</option>
+            <option>Within 1 week</option>
+            <option>Within 2 weeks</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>How did you find us?</label>
+          <select name="referral_source">
+            <option value="" disabled selected>Select one</option>
+            <option>Referral from a colleague</option>
+            <option>LinkedIn</option>
+            <option>Instagram</option>
+            <option>Facebook</option>
+            <option>WhatsApp</option>
+            <option>Google Search</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-wrap">
+      <button type="submit" class="submit-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+        Submit Organisation Brief
+      </button>
+      <p class="submit-note">Your responses are confidential and go directly to Uriel Majesty's studio. We'll be in touch within 24 hours.</p>
+    </div>
+
+  </form>
+
+  <!-- SUCCESS -->
+  <div id="success-msg">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2>Brief Received — Thank You!</h2>
+    <p>Your NGO brand questionnaire has been submitted. Majesty will review your responses and reach out within 24 hours to begin building your identity.</p>
+  </div>
+</main>
+
+<footer>
+  Crafted with care by <strong>Uriel Majesty Creative Studio</strong> &nbsp;·&nbsp; All submissions are confidential
+</footer>
+
+<script>
+  const form = document.getElementById('ngoForm');
+  const fill = document.getElementById('progressFill');
+  const pct  = document.getElementById('progressPct');
+
+  function updateProgress() {
+    const radioNames = new Set([...form.querySelectorAll('[required][type="radio"]')].map(r => r.name));
+    const nonRadioRequired = [...form.querySelectorAll('[required]:not([type="radio"])')];
+    const nonRadioFilled = nonRadioRequired.filter(el => el.value.trim()).length;
+    let radioFilled = 0;
+    radioNames.forEach(name => {
+      if (form.querySelectorAll(`[name="${name}"]:checked`).length > 0) radioFilled++;
+    });
+    const total = nonRadioRequired.length + radioNames.size;
+    const filled = nonRadioFilled + radioFilled;
+    const perc = total ? Math.round((filled / total) * 100) : 0;
+    fill.style.width = perc + '%';
+    pct.textContent = perc + '%';
+  }
+
+  form.addEventListener('input', updateProgress);
+  form.addEventListener('change', updateProgress);
+  updateProgress();
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.submit-btn');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('success-msg').style.display = 'block';
+        fill.style.width = '100%';
+        pct.textContent = '100%';
+      } else {
+        btn.textContent = 'Something went wrong — try again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Network error — please retry';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
